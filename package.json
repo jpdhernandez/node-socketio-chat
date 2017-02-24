@@ -1,0 +1,17 @@
+{
+  "name": "node-socketio-chat-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {},
+  "author": "Julian Philip Hernandez",
+  "license": "MIT",
+  "engines": {
+    "node": "6.6.0"
+  },
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "dependencies": {
+    "express": "^4.14.1"
+  }
+}
