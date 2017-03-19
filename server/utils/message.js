@@ -16,4 +16,5 @@ const generateLocationMessage = (from, latitude, longitude) => {
     createdAt: moment().valueOf()
   }
 };
+
 module.exports = {generateMessage, generateLocationMessage};
