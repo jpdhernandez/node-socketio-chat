@@ -8,7 +8,6 @@ const generateMessage = (from, text) => {
   }
 };
 
-
 const generateLocationMessage = (from, latitude, longitude) => {
   return {
     from,
