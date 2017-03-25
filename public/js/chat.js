@@ -1,6 +1,6 @@
 const socket = io();
 
-function scrollToBottom() {
+ function scrollToBottom() {
   // Selectors
   var messages = jQuery('#messages');
   var newMessage = messages.children('li:last-child')
@@ -16,7 +16,7 @@ function scrollToBottom() {
   }
 }
 
-socket.on("connect", function() {
+socket.on("connect", () => {
   const params = jQuery.deparam(window.location.search);
 
   socket.emit("join", params, (err) => {
@@ -30,11 +30,15 @@ socket.on("connect", function() {
   });
 });
 
-socket.on("disconnect", function() {
+socket.on("disconnect", () => {
   console.log("Disconnected from server");
 });
 
-socket.on("newMessage", function(message) {
+socket.on("updateUserList", () => {
+
+});
+
+socket.on("newMessage", (message) => {
   const formattedTime = moment(message.createdAt).format("h:mm a");
   const template = jQuery("#message-template").html();
   const html = Mustache.render(template, {
