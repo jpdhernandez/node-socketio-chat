@@ -34,8 +34,14 @@ socket.on("disconnect", () => {
   console.log("Disconnected from server");
 });
 
-socket.on("updateUserList", () => {
+socket.on("updateUserList", (users) => {
+  const ol = jQuery("<ol></ol>");
 
+  users.forEach((user) => {
+    ol.append(jQuery("<li></li>").text(user));
+  });
+
+  jQuery("#users").html(ol);
 });
 
 socket.on("newMessage", (message) => {
@@ -95,7 +101,8 @@ locationButton.on("click", () => {
       longitude: position.coords.longitude
     });
   }, () => {
-    locationButton.removeAttr("disabled").text("Send location");;
+    locationButton.removeAttr("disabled").text("Send location");
+
     alert("Unable to fetch location.");
   });
 });
